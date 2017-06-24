@@ -10,5 +10,7 @@ And so, this is a Python app that connects to Spotify and Youtube APIs to seek t
 
 ### Run
 `docker run -t --name echoic-memory -p 5006:5000 echoic-memory`
+
 or 
+
 `docker-compose up --force-recreate` (also starts and binds elasticsearch)
