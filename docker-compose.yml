@@ -1,7 +1,0 @@
-echoic-memory:
-  container_name: echoic-memory
-  image: echoic-memory:latest
-  ports:
-    - "5006:5000"
-  volumes:
-    - ".:/app"

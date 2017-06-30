@@ -13,9 +13,20 @@ def search():
         return jsonify({'error': 'Missing search criteria'}), 400
 
     youtube = YoutubeClient()
-    youtube.search()
+    result = youtube.search(request.json['criteria'])
 
-    return jsonify({'message': 'Searching!'});
+    return jsonify({
+        'id': result,
+        'video': 'https://youtube.com/watch?v=' + result
+    });
+
+def vote():
+    if not request.json or not 'video_id' in request.json:
+        return jsonify({'error': 'Missing video_id'}), 400
+
+    return jsonify({
+        'success': true,
+    });
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
